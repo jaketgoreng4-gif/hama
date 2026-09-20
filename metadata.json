@@ -1,0 +1,6 @@
+{
+  "name": "HAMA PRO EDITING",
+  "description": "HAMA PRO EDITING - Editor video slideshow pro dengan equalizer liquid melingkar dinamis, custom center image, auto transkripsi lirik musik otomatis, dan efek visual sinematik.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
