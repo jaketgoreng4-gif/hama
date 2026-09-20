@@ -24,6 +24,7 @@ import { AudioSettings } from './components/AudioSettings';
 import { LyricsManager } from './components/LyricsManager';
 import { ExportModal } from './components/ExportModal';
 import { AutoEditModal } from './components/AutoEditModal';
+import { VercelDeployModal } from './components/VercelDeployModal';
 import { Activity, Sliders, Music, Clock, CheckCircle2, AlertCircle, Image as ImageIcon, ImagePlus, Plus, Zap, Sparkles } from 'lucide-react';
 
 export default function App() {
@@ -136,6 +137,9 @@ export default function App() {
 
   // Auto-Edit Studio Pro Modal state
   const [showAutoEditModal, setShowAutoEditModal] = useState<boolean>(false);
+
+  // Vercel Deploy Guide Modal state
+  const [showVercelModal, setShowVercelModal] = useState<boolean>(false);
 
   // Canvas ref
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -1172,6 +1176,7 @@ export default function App() {
         trackCount={audioTracks.length}
         slideCount={slides.length}
         onOpenAutoEdit={() => setShowAutoEditModal(true)}
+        onOpenVercelDeploy={() => setShowVercelModal(true)}
       />
 
       {/* Main Studio Workspace */}
@@ -1509,6 +1514,12 @@ export default function App() {
         uploadedAudioName={uploadedAudioName}
         currentSlideDuration={slideDuration}
         onApplyAutoEdit={handleApplyAutoEdit}
+      />
+
+      {/* Vercel Deploy Guide Modal */}
+      <VercelDeployModal
+        isOpen={showVercelModal}
+        onClose={() => setShowVercelModal(false)}
       />
 
       {/* Export Recording Modal */}

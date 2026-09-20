@@ -10,6 +10,7 @@ import {
   ImagePlus,
   Upload,
   Zap,
+  Globe,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -26,6 +27,7 @@ interface HeaderProps {
   trackCount?: number;
   slideCount: number;
   onOpenAutoEdit?: () => void;
+  onOpenVercelDeploy?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -42,6 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
   trackCount = 0,
   slideCount,
   onOpenAutoEdit,
+  onOpenVercelDeploy,
 }) => {
   const audioInputRef = useRef<HTMLInputElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -151,6 +154,18 @@ export const Header: React.FC<HeaderProps> = ({
             <Zap className="w-3.5 h-3.5 fill-current" />
             <span className="hidden md:inline">Auto-Edit Pro</span>
             <span className="md:hidden">Auto-Edit</span>
+          </button>
+        )}
+
+        {/* Deploy Vercel Guide Button */}
+        {onOpenVercelDeploy && (
+          <button
+            onClick={onOpenVercelDeploy}
+            title="Panduan & Perintah Git untuk Deploy ke Vercel via GitHub"
+            className="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-800/90 hover:bg-slate-700/90 text-slate-300 hover:text-white border border-slate-700/80 shadow-sm flex items-center gap-1.5 transition"
+          >
+            <Globe className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="hidden lg:inline">Deploy Vercel</span>
           </button>
         )}
       </div>
